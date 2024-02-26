@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Real Estate Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="app.js"></script>
+  
+  
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: white;
+    }
+
+    .navbar {
+      background-color: #007bff !important;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: black;
+    }
+    
+    .img {
+  background: url('download.jpeg');
+	background-repeat: no-repeat;
+  background-size: auto;
+  background-size:100% 100%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(15px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+h2 {
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+    
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#">Real Estate</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="img"></div>
+<div class="container">
+  <form class="form">
+    <div>
+      <label for="location">Enter Location</label>
+    <select class="location" name="" id="uiLocations">
+      <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+      <option>bandup</option>
+          <option>airoli</option>
+    </select>
+  </div>
+    <div class="form-group">
+      <label for="bhk">Enter Number Of Bedrooms</label>
+      <input type="range" name="bhk" class="form-control-range" id="bhk" min="1" max="5" value="1">
+      <span name="sliderValue1" id="sliderValue1">1</span>
+    </div>
+    <div class="form-group">
+      <label for="squareFoot">Enter Size Of House</label>
+      <input class="area"  type="text" id="uiSqft" class="floatLabel" name="Squareft" value="1000">
+    </div>
+    <button class="submit" onclick="onClickedEstimatePrice()" type="button" class="btn btn-primary">Predict Price</button>
+    <div id="uiEstimatedPrice" class="result"> <h2></h2></div>
+  </form>
+</div>
+
+
+
+<script>
+  // JavaScript code to handle the slider value
+  var slider = document.getElementById("bhk");
+  var sliderValueDisplay = document.getElementById("sliderValue1");
+
+  // Function to update the slider value display
+  function updateSliderValue() {
+    var sliderValue = slider.value;
+    sliderValueDisplay.textContent = "Slider Value: " + sliderValue;
+  }
+
+  // Event listener to capture changes in the slider value
+  slider.addEventListener("input", function() {
+    updateSliderValue();
+    // You can perform additional actions with the slider value here
+    // For example, you can send it to a server or use it in calculations
+    // Example:
+    // var sliderValue = slider.value;
+    // console.log("Slider value:", sliderValue);
+  });
+
+  // Initial call to update the slider value display
+  updateSliderValue();
+</script>
+
+ 
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
